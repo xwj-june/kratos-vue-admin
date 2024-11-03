@@ -9,7 +9,7 @@ server:
 data:
   database:
     driver: mysql
-    source: root:123456@tcp(127.0.0.1:3306)/kva?charset=utf8mb4&parseTime=True&loc=Local
+    source: root:your_password@tcp(127.0.0.1:3306)/kva?charset=utf8mb4&parseTime=True&loc=Local
     maxIdleConns: 10
     maxOpenConns: 20
     logLevel: 'info'

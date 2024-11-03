@@ -47,3 +47,51 @@ go build -o kva
 
 - `kratos` 微服务框架。
 - `vue3` 使用该前端框架进行开发后台管理web 界面。
+
+# Prerequisites 
+
+## Database
+create mysql sql with docker container
+```cmd
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=your_password -p 3306:3306 -d mysql:latest
+```
+
+Setup database tables
+```mysql
+create database kva
+```
+Connect to the database and set the default schema and run the sql queries in `deploy/sql/kva.sql`
+
+## Redis
+create Redis with docker container
+```cmd
+docker run --name redis-container -p 6379:6379 -d redis
+```
+
+## Run the application
+```cmd
+# 初始化
+make init
+
+# 生成全部代码
+make all
+
+# 下载依赖
+go mod tidy
+
+# 运行程序
+kratos run
+```
+
+
+### Get auth token 
+/system/user/login
+```json
+{
+    "username": "admin",
+    "password": "123456",
+    "code": "35"
+}
+```
+
+
